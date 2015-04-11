@@ -1,0 +1,59 @@
+root@kelvinOG:/home/kelvin/repositories/myCustomApi/custom-build-api-seed# http GET http://localhost:5000/moneys/
+HTTP/1.0 200 OK
+Content-Length: 97
+Content-Type: application/json
+Date: Wed, 01 Apr 2015 21:32:47 GMT
+Server: Werkzeug/0.9.6 Python/2.7.5
+
+{
+    "moneys": [
+        "http://localhost:5000/moneys/2", 
+        "http://localhost:5000/moneys/1"
+    ]
+}
+
+root@kelvinOG:/home/kelvin/repositories/myCustomApi/custom-build-api-seed# http POST http://localhost:5000/moneys/ name="Money for girls"
+HTTP/1.0 201 CREATED
+Content-Length: 2
+Content-Type: application/json
+Date: Wed, 01 Apr 2015 21:33:49 GMT
+Location: http://localhost:5000/moneys/3
+Server: Werkzeug/0.9.6 Python/2.7.5
+
+{}
+
+root@kelvinOG:/home/kelvin/repositories/myCustomApi/custom-build-api-seed# http GET http://localhost:5000/moneys/1 
+HTTP/1.0 200 OK
+Content-Length: 79
+Content-Type: application/json
+Date: Wed, 01 Apr 2015 21:34:27 GMT
+Server: Werkzeug/0.9.6 Python/2.7.5
+
+{
+    "name": "changedMoneyss", 
+    "self_url": "http://localhost:5000/moneys/1"
+}
+
+root@kelvinOG:/home/kelvin/repositories/myCustomApi/custom-build-api-seed# http PUT http://localhost:5000/moneys/1 name="Money for charity"
+HTTP/1.0 200 OK
+Content-Length: 2
+Content-Type: application/json
+Date: Wed, 01 Apr 2015 21:35:08 GMT
+Server: Werkzeug/0.9.6 Python/2.7.5
+
+{}
+
+root@kelvinOG:/home/kelvin/repositories/myCustomApi/custom-build-api-seed# http GET http://localhost:5000/moneys/
+HTTP/1.0 200 OK
+Content-Length: 136
+Content-Type: application/json
+Date: Wed, 01 Apr 2015 21:35:30 GMT
+Server: Werkzeug/0.9.6 Python/2.7.5
+
+{
+    "moneys": [
+        "http://localhost:5000/moneys/2", 
+        "http://localhost:5000/moneys/1", 
+        "http://localhost:5000/moneys/3"
+    ]
+}
