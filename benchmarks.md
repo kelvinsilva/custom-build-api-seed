@@ -93,3 +93,37 @@ Percentage of the requests served within a certain time (ms)
   98%    739
   99%    739
  100%    739 (longest request)
+ 
+###ab -n 1 -c 1 http://127.0.0.1:5000/politics/ >> benchmarks.md 
+
+This is ApacheBench, Version 2.3 <$Revision: 1528965 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient).....done
+
+
+Server Software:        Werkzeug/0.9.6
+Server Hostname:        127.0.0.1
+Server Port:            5000
+
+Document Path:          /politics/
+Document Length:        32907 bytes
+
+Concurrency Level:      1
+Time taken for tests:   9.641 seconds
+Complete requests:      1
+Failed requests:        0
+Total transferred:      33055 bytes
+HTML transferred:       32907 bytes
+Requests per second:    0.10 [#/sec] (mean)
+Time per request:       9640.525 [ms] (mean)
+Time per request:       9640.525 [ms] (mean, across all concurrent requests)
+Transfer rate:          3.35 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1    1   0.0      1       1
+Processing:  9639 9639   0.0   9639    9639
+Waiting:     9639 9639   0.0   9639    9639
+Total:       9640 9640   0.0   9640    9640
