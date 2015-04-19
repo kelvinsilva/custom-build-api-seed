@@ -115,7 +115,7 @@ Processing: |  100 | 237 | 94.7  |  200  |   556
 Waiting:    |  100 | 236 | 94.0  |  200   |  555
 Total:     |   100 | 237 | 94.7  |  201   |  556
 
-Percentage of the requests served within a certain time (ms)
+####Percentage of the requests served within a certain time (ms)
 
 _ | _
 ----|----
@@ -129,10 +129,16 @@ _ | _
   99%  |  537
  100%  |  556 (longest request)
  
+From the last test we saw that a concurrency of 10 wrecked the server, and the latency was too high. So I decided to take a step back and see 
+if the server could endure one request at a time, but for a long time, so i decided to do 200 requests at 1 concurrency. We found that the server
+gave us a maximum of 556 ms for a request, and that in general, we got 237ms response time, which is pretty decent. This means that the server can handle light traffic without any problems.
+This server can probably endure a large number of requests, but not concurrently. It has a lot of endurance, but no real muscular power.
+ 
+ 
  
 ##Third test 1 request, 1 concurrent, baseline test
  
-```ab -n 1 -c 1 http://127.0.0.1:5000/politics/ >> benchmarks.md ```
+```ab -n 1 -c 1 127.0.0.1:5000/politics/```
 
 This is ApacheBench, Version 2.3 <$Revision: 1528965 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -141,28 +147,29 @@ Licensed to The Apache Software Foundation, http://www.apache.org/
 Benchmarking 127.0.0.1 (be patient).....done
 
 _ | _
----|---
+-------|-----------
 Server Software:   |     Werkzeug/0.9.6
-Server Hostname:    |    127.0.0.1
-Server Port:       |     5000
-Document Path:    |      /politics/
-Document Length:   |     32907 bytes
-Concurrency Level:   |   1
-Time taken for tests:  | 9.641 seconds
-Complete requests:   |   1
+Server Hostname:   |     127.0.0.1
+Server Port:        |    5000
+Document Path:      |    /politics/
+Document Length:     |   32907 bytes
+Concurrency Level:  |    1
+Time taken for tests: |  0.239 seconds
+Complete requests:  |    1
 Failed requests:     |   0
 Total transferred:   |   33055 bytes
-HTML transferred:    |   32907 bytes
-Requests per second: |   0.10 [#/sec] (mean)
-Time per request:    |   9640.525 [ms] (mean)
-Time per request:    |   9640.525 [ms] (mean, across all concurrent requests)
-Transfer rate:       |   3.35 [Kbytes/sec] received
+HTML transferred:     |  32907 bytes
+Requests per second:  |  4.18 [#/sec] (mean)
+Time per request:    |   239.368 [ms] (mean)
+Time per request:    |   239.368 [ms] (mean, across all concurrent requests)
+Transfer rate:      |    134.86 [Kbytes/sec] received
 
 ####Connection Times (ms)
 
-   _        | min  |  mean | [+/-sd] | median |  max
-------------|------|-------|---------|--------|------|--------
-Connect:    |  1   |  1    |  0.0  |    1   |    1
-Processing: | 9639 | 9639  | 0.0 |  9639  |  9639
-Waiting:    | 9639 | 9639  | 0.0 |  9639  |  9639
-Total:      | 9640 | 9640  | 0.0 |  9640  |  9640
+
+       _      | min | mean | [+/-sd]  | median  | max
+------------|------|-----|-------|--------|-----|---|
+Connect:    |    1  |  1 |  0.0   |   1   |    1
+Processing: |  239 | 239 |  0.0  |  239   |  239
+Waiting:    |  215 | 215  | 0.0  |  215  |   215
+Total:      |  239 | 239  | 0.0 |   239  |   239
