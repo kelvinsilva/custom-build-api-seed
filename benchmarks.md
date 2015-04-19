@@ -173,3 +173,9 @@ Connect:    |    1  |  1 |  0.0   |   1   |    1
 Processing: |  239 | 239 |  0.0  |  239   |  239
 Waiting:    |  215 | 215  | 0.0  |  215  |   215
 Total:      |  239 | 239  | 0.0 |   239  |   239
+
+
+This was to test a baseline (control) case, where we have only 1 request. It is important to see this so we can gauge if all the other tests align with the results that we think we should get.
+Since we are testing this on localhost and not over ngrock network we can conclude that the millisecond numbers are contributed directly from the hardware of the machine
+and the software. We know that for sure there are not any other servers or external factors that contribute to the millisecond response time.
+If we wanted to increase hardware and change software we should always compare the 1 connection 1 concerrency test first as it is the most basic of the tests.
