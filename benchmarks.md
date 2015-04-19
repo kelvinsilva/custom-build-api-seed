@@ -2,7 +2,7 @@ Apache Benchmark
 ===============================================================
 
 
-###First Test, 100 requests, 10 concurrent
+##First Test, 100 requests, 10 concurrent
 
 ```ab -n 100 -c 10 http://localhost:5000/politics/ > benchmarks.md```
 
@@ -115,7 +115,7 @@ _ | _
   99%  |  739
  100%  |  739 (longest request)
  
-###Third test 1 request, 1 concurrent, baseline test
+##Third test 1 request, 1 concurrent, baseline test
  
 ```ab -n 1 -c 1 http://127.0.0.1:5000/politics/ >> benchmarks.md ```
 
