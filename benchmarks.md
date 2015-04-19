@@ -45,7 +45,9 @@ Transfer rate |          123.73 [Kbytes/sec] received
 | Waiting    | 222 | 2482 | 433.1 | 2555 |  2984 |
 | Total      | 224 | 2484 | 433.5 | 2560 |  2984 |
 
+
 Percentage of the requests served within a certain time (ms)
+
 _        |        _
 -------|--------
  50%   |  2560 
