@@ -109,6 +109,7 @@ Transfer rate:      |    135.88 [Kbytes/sec] received
 ####Connection Times (ms)
 
       _  |      min | mean | [+/-sd] | median |  max
+------------|-------|----|-------|---------|-----
 Connect:    |    0 |   0 |  0.0   |   0    |   0
 Processing: |  100 | 237 | 94.7  |  200  |   556
 Waiting:    |  100 | 236 | 94.0  |  200   |  555
