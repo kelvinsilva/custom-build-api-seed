@@ -126,27 +126,28 @@ Licensed to The Apache Software Foundation, http://www.apache.org/
 Benchmarking 127.0.0.1 (be patient).....done
 
 _ | _
-Server Software:        Werkzeug/0.9.6
-Server Hostname:        127.0.0.1
-Server Port:            5000
+---|---
+Server Software:   |     Werkzeug/0.9.6
+Server Hostname:    |    127.0.0.1
+Server Port:       |     5000
+Document Path:    |      /politics/
+Document Length:   |     32907 bytes
+Concurrency Level:   |   1
+Time taken for tests:  | 9.641 seconds
+Complete requests:   |   1
+Failed requests:     |   0
+Total transferred:   |   33055 bytes
+HTML transferred:    |   32907 bytes
+Requests per second: |   0.10 [#/sec] (mean)
+Time per request:    |   9640.525 [ms] (mean)
+Time per request:    |   9640.525 [ms] (mean, across all concurrent requests)
+Transfer rate:       |   3.35 [Kbytes/sec] received
 
-Document Path:          /politics/
-Document Length:        32907 bytes
+####Connection Times (ms)
 
-Concurrency Level:      1
-Time taken for tests:   9.641 seconds
-Complete requests:      1
-Failed requests:        0
-Total transferred:      33055 bytes
-HTML transferred:       32907 bytes
-Requests per second:    0.10 [#/sec] (mean)
-Time per request:       9640.525 [ms] (mean)
-Time per request:       9640.525 [ms] (mean, across all concurrent requests)
-Transfer rate:          3.35 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        1    1   0.0      1       1
-Processing:  9639 9639   0.0   9639    9639
-Waiting:     9639 9639   0.0   9639    9639
-Total:       9640 9640   0.0   9640    9640
+    _     | min |  mean | [+/-sd] | median |  max
+-----|---|---|---|--|---|
+Connect:    |    1  |  1 |  0.0  |    1   |    1
+Processing: | 9639 | 9639  | 0.0 |  9639  |  9639
+Waiting:    | 9639 | 9639  | 0.0 |  9639  |  9639
+Total:      |  9640 | 9640 |  0.0 |  9640  |  9640
