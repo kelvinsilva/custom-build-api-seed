@@ -62,7 +62,7 @@ _        |        _
   99%   |2984 
  100%   |2984 (longest request) 
 
-```
+
 For this test there was a lot of latency, and we saw that in the table above, 50% and above requests were served with greater than 2500 ms latency
 which is too high for the user. Since all these percentages had close to 2500ms of time, we can conclude that ALL requests took a similar amount of time.
 For the next two tests i wont bother going any higher because I know that we already reached an unbearable amount of load.
@@ -71,7 +71,6 @@ Also, this machine is running on a single core CPU, with 512 mb of ram, so it is
 Since the program is failing at such a low number of requests it indicates to me that it has to be the low performant hardware. If we try to increase the hardware specs
 and we still obtain bad results, then we can conclude that it is a software problem.
 To fix this problem we need to get more CPU power 
-```
 
  
 
