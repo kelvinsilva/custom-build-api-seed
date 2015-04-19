@@ -2,6 +2,8 @@ Apache Benchmark
 ===============================================================
 
 
+###First Test, 100 requests, 10 concurrent
+
 ```ab -n 100 -c 10 http://localhost:5000/politics/ > benchmarks.md```
 
 
@@ -46,7 +48,7 @@ Transfer rate |          123.73 [Kbytes/sec] received
 | Total      | 224 | 2484 | 433.5 | 2560 |  2984 |
 
 
-Percentage of the requests served within a certain time (ms)
+####Percentage of the requests served within a certain time (ms)
 
 _        |        _
 -------|--------
@@ -61,7 +63,7 @@ _        |        _
  100%   |2984 (longest request) 
 
 
-
+###Second test, 10 requests, 1 concurrent
  
 ```ab -n 10 -c1 127.0.0.1:5000/politics/ >> benchmarks.md```
  
@@ -71,42 +73,49 @@ Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking 127.0.0.1 (be patient).....done
 
+_ | _
+----|-----
+Server Software:    |    Werkzeug/0.9.6
+Server Hostname:    |    127.0.0.1
+Server Port:       |     5000
+Document Path:     |     /politics/
+Document Length:   |     32907 bytes
+Concurrency Level:   |   1
+Time taken for tests: |  3.037 seconds
+Complete requests:   |   10
+Failed requests:    |    0
+Total transferred:  |    330550 bytes
+HTML transferred:   |    329070 bytes
+Requests per second: |   3.29 [#/sec] (mean)
+Time per request:    |   303.665 [ms] (mean)
+Time per request:   |    303.665 [ms] (mean, across all concurrent requests)
+Transfer rate:      |    106.30 [Kbytes/sec] received
 
-Server Software:        Werkzeug/0.9.6
-Server Hostname:        127.0.0.1
-Server Port:            5000
+####Connection Times (ms)
 
-Document Path:          /politics/
-Document Length:        32907 bytes
+              
+      _    |   min|  mean | [+/-sd] | median |   max
+-----------|------|----|-----|-------|------|------
+Connect:    |    0  |  0  |  0.0  |    0    |   0
+Processing:  | 183 | 303 | 171.9  |  241   |  738
+Waiting:    |  182 | 303  | 171.8  |  240   |  737
+Total:     |   183 | 304 | 171.9  |  241   |  739
 
-Concurrency Level:      1
-Time taken for tests:   3.037 seconds
-Complete requests:      10
-Failed requests:        0
-Total transferred:      330550 bytes
-HTML transferred:       329070 bytes
-Requests per second:    3.29 [#/sec] (mean)
-Time per request:       303.665 [ms] (mean)
-Time per request:       303.665 [ms] (mean, across all concurrent requests)
-Transfer rate:          106.30 [Kbytes/sec] received
+####Percentage of the requests served within a certain time (ms)
 
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0    0   0.0      0       0
-Processing:   183  303 171.9    241     738
-Waiting:      182  303 171.8    240     737
-Total:        183  304 171.9    241     739
-
-Percentage of the requests served within a certain time (ms)
-  50%    241
-  66%    312
-  75%    374
-  80%    395
-  90%    739
-  95%    739
-  98%    739
-  99%    739
- 100%    739 (longest request)
+_ | _
+---|----
+  50%   | 241
+  66%  |  312
+  75%   | 374
+  80%  |  395
+  90%  |  739
+  95%  |  739
+  98%  |  739
+  99%  |  739
+ 100%  |  739 (longest request)
+ 
+###Third test 1 request, 1 concurrent, baseline test
  
 ```ab -n 1 -c 1 http://127.0.0.1:5000/politics/ >> benchmarks.md ```
 
@@ -116,7 +125,7 @@ Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking 127.0.0.1 (be patient).....done
 
-
+_ | _
 Server Software:        Werkzeug/0.9.6
 Server Hostname:        127.0.0.1
 Server Port:            5000
