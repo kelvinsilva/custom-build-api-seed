@@ -1,4 +1,3 @@
-
 Apache Benchmark
 ===============================================================
 
@@ -12,17 +11,18 @@ Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking 127.0.0.1 (be patient).....done
 
-|_|_||
--|-|
-Server Software |       Werkzeug/0.9.6
-Server Hostname |        127.0.0.1
-Server Port |            5000
+|_                  |                   _  |
+|-------------------|----------------------|
+| Server Software   |       Werkzeug/0.9.6 |
+| Server Hostname   |        127.0.0.1     |
+| Server Port       |            5000      |
 
 
-_|_
---|--|
-Document Path |         /politics/
-Document Length |      32907 bytes
+ _               |                 _  
+-----------------|--------------------
+ Document Path   |        /politics/  
+ Document Length |      32907 bytes   
+
 
  _        |      _         
  ------------------- | ----------------
@@ -48,15 +48,16 @@ Transfer rate |          123.73 [Kbytes/sec] received
 Percentage of the requests served within a certain time (ms)
 |_        |        _|
 -------|--------
-  50% |  2560
-  66% |  2601
-  75%   |2709
-  80%   |2733
-  90%   |2804
-  95%   |2858
-  98%   |2973
-  99%   |2984
- 100%   |2984 (longest request)
+|  50%   |  2560 |
+|  66%   |  2601 |
+|  75%   |2709 |
+|  80%   |2733 |
+|  90%   |2804 |
+|  95%   |2858 |
+|  98%   |2973 |
+|  99%   |2984 |
+| 100%   |2984 (longest request) |
+
 
 
  
