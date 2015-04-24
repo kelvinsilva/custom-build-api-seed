@@ -107,8 +107,14 @@ def edit_politics(id):
 @app.route('/')
 def index():
     highlight = {'min': 1, 'max': 2}
-    tempPolit = politicsPost.query.all()
-    return render_template('index.html', tempPolit = tempPolit, highlight=highlight)
+    politics = politicsPost.query.all()
+    return render_template('index.html', politics = politics, highlight=highlight)
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template('404.html')
+
+    
 
 if __name__ == '__main__':
     db.create_all()
