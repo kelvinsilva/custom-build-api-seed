@@ -2,13 +2,15 @@
 #cs 18 armen donigian
 
 import os
-from flask import Flask, url_for, jsonify, request
+from flask import Flask, url_for, jsonify, request, render_template
+from flask.ext.bootstrap import Bootstrap
 from flask.ext.sqlalchemy import SQLAlchemy
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 db_path = os.path.join(basedir, '../data.sqlite')
 
 app = Flask(__name__)
+bootstrap = Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
 
 db = SQLAlchemy(app)
@@ -101,7 +103,12 @@ def edit_politics(id):
     db.session.add(politics)
     db.session.commit()
     return jsonify({})
-
+    
+@app.route('/')
+def index():
+    highlight = {'min': 1, 'max': 2}
+    tempPolit = politicsPost.query.all()
+    return render_template('index.html', tempPolit = tempPolit, highlight=highlight)
 
 if __name__ == '__main__':
     db.create_all()
