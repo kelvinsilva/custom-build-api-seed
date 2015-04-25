@@ -5,6 +5,7 @@ import os
 from flask import Flask, url_for, jsonify, request, render_template
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.sqlalchemy import SQLAlchemy
+from sqlalchemy import or_
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 db_path = os.path.join(basedir, '../data.sqlite')
@@ -109,7 +110,31 @@ def index():
     highlight = {'min': 1, 'max': 2}
     politics = politicsPost.query.all()
     return render_template('index.html', politics = politics, highlight=highlight)
+    
+@app.route('/politics/highestScore/')
+def highestScore():
+    highlight = {'min': 1, 'max': 2}
+    politics = politicsPost.query.order_by(politicsPost.score.desc())
+    return render_template('index.html', politics = politics, highlight=highlight)
 
+@app.route('/politics/lowestScore/')
+def lowestScore():
+    highlight = {'min': 1, 'max': 2}
+    politics = politicsPost.query.order_by(politicsPost.score.asc())
+    return render_template('index.html', politics = politics, highlight=highlight)
+    
+@app.route('/politics/republicans/')
+def repub():
+    highlight = {'min': 1, 'max': 2}
+    politics = politicsPost.query.filter(or_(politicsPost.party == 'republican', politicsPost.party == 'Republican'))
+    return render_template('index.html', politics = politics, highlight=highlight)    
+
+@app.route('/politics/liberals/')
+def liber():
+    highlight = {'min': 1, 'max': 2}
+    politics = politicsPost.query.filter(or_(politicsPost.party == 'liberals', politicsPost.party == 'Liberal'))
+    return render_template('index.html', politics = politics, highlight=highlight)
+    
 @app.errorhandler(404)
 def not_found(e):
     return render_template('404.html')
