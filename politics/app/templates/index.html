@@ -1,0 +1,82 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}List of Politics Posts{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="#">List of Politics Posts</a>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Politics Posts Info</h1>
+        <table class="table table-hover">
+    <tr>
+        <th>Party</th>
+        <th></th>
+        <th>Title</th>
+        <th></th>
+        <th>Author</th>
+        <th></th>
+        <th>Time created UTC</th>
+        <th></th>
+        <th>Domain</th>
+        <th></th>
+        <th>Downs</th>
+        <th></th>
+        <th>Ups</th>
+        <th></th>
+        <th>Score</th>
+        <th></th>
+        <th>Number of Comments</th>
+        <th></th>
+        <th>Link To Reddit Post</th> <!--permaLinksr-->
+        <th></th>
+        <th>Thumbnail Link</th>
+        <th></th>
+        <th>Link to url in post</th> <!--urlImg-->
+        <th></th>        
+        <th>Self URL</th>
+        <th></th> 
+
+    </tr>
+    {% for tempPol in politics %}
+    <tr>
+        <td>
+            {% set hl = tempPol.id <= highlight['min'] %}
+            {% if hl %}<b>{% endif %}
+            {{ tempPol.party }}
+            {% if hl %}</b>{% endif %}
+        </td>
+        <td></td>
+        <td>{{ tempPol.title }}</td>
+        <td></td>
+        <td>{{ tempPol.author}}</td>
+        <td></td>
+        <td>{{ tempPol.createdUtc }}</td>
+        <td></td>
+        <td>{{ tempPol.domain }}</td>
+        <td></td>
+        <td>{{ tempPol.downs }}</td>
+        <td></td>
+        <td>{{ tempPol.ups }}</td>
+        <td></td>
+        <td>{{ tempPol.score }}</td>
+        <td></td>
+        <td>{{ tempPol.numComments}}</td>
+        <td></td>
+        <td>{{ tempPol.permaLinks }}</td>
+        <td></td>        
+        <td>{{ tempPol.thumbNail }}</td>
+        <td></td>      
+        <td>{{ tempPol.urlImg }}</td>
+        <td></td>      
+        <td>{{ tempPol.self_url }}</td>
+        <td></td>              
+    </tr>
+    {% endfor %}
+        </table>
+    </div>
+{% endblock %}
