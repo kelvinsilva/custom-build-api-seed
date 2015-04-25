@@ -10,8 +10,10 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 db_path = os.path.join(basedir, '../data.sqlite')
 
 app = Flask(__name__)
+
 bootstrap = Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
+
 
 db = SQLAlchemy(app)
 
@@ -118,4 +120,5 @@ def not_found(e):
 
 if __name__ == '__main__':
     db.create_all()
-    app.run(debug=True)
+    ##app.run(debug=True)
+    app.run(host=os.getenv("IP", "0.0.0.0"),port=int(os.getenv("PORT", 8080)))
