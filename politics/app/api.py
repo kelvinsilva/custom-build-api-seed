@@ -135,6 +135,23 @@ def liber():
     politics = politicsPost.query.filter(or_(politicsPost.party == 'liberals', politicsPost.party == 'Liberal'))
     return render_template('index.html', politics = politics, highlight=highlight)
     
+
+@app.route('/politics/jsondata/')
+def alljsondat():
+    return jsonify({'politics': [polit.export_data() for polit in
+                                  politicsPost.query.all()]})
+
+@app.route('/politics/republicans/jsondata/')
+def republicanjsondata():
+    return jsonify({'politics': [polit.export_data() for polit in
+                                  politicsPost.query.filter(or_(politicsPost.party == 'republican', politicsPost.party == 'Republican'))]})
+
+@app.route('/politics/liberals/jsondata/')
+def liberaljsondata():
+    return jsonify({'politics': [polit.export_data() for polit in
+                                  politicsPost.query.filter(or_(politicsPost.party == 'liberals', politicsPost.party == 'Liberal'))]})
+
+    
 @app.errorhandler(404)
 def not_found(e):
     return render_template('404.html')
