@@ -134,10 +134,6 @@ def liber():
     highlight = {'min': 1, 'max': 2}
     politics = politicsPost.query.filter(or_(politicsPost.party == 'liberals', politicsPost.party == 'Liberal'))
     return render_template('index.html', politics = politics, highlight=highlight)
-<<<<<<< HEAD
-=======
-    
->>>>>>> kelvin.addButonsBoostrap
 
 @app.route('/politics/jsondata/')
 def alljsondat():
@@ -153,12 +149,7 @@ def republicanjsondata():
 def liberaljsondata():
     return jsonify({'politics': [polit.export_data() for polit in
                                   politicsPost.query.filter(or_(politicsPost.party == 'liberals', politicsPost.party == 'Liberal'))]})
-
-<<<<<<< HEAD
-
-=======
     
->>>>>>> kelvin.addButonsBoostrap
 @app.errorhandler(404)
 def not_found(e):
     return render_template('404.html')
